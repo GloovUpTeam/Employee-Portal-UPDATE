@@ -1,0 +1,10 @@
+{
+    "name": "root-proxy",
+    "version": "1.0.0",
+    "description": "Proxy for nested project",
+    "scripts": {
+        "install:frontend": "cd GloovUpTeam-Employee-Portal-main/gloov-up-employee-portal/frontend && npm install",
+        "dev": "cd GloovUpTeam-Employee-Portal-main/gloov-up-employee-portal/frontend && npm run dev",
+        "build": "cd GloovUpTeam-Employee-Portal-main/gloov-up-employee-portal/frontend && npm run build"
+    }
+}

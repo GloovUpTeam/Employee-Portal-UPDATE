@@ -1,0 +1,198 @@
+/* styles/date-picker.css */
+
+.date-picker-popup {
+  position: fixed;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  color: #fff;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header: Year Select */
+.picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.year-select-container {
+  position: relative;
+}
+
+.year-select-trigger {
+  background: #222;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+
+.year-select-trigger:hover, .year-select-trigger:focus {
+  border-color: #1DCD9C;
+  outline: none;
+}
+
+.year-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.year-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ccc;
+  transition: background 0.2s;
+}
+
+.year-option:hover, .year-option.focused {
+  background: #333;
+  color: #fff;
+}
+
+.year-option.selected {
+  color: #1DCD9C;
+  font-weight: bold;
+}
+
+/* Month Grid */
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.month-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #aaa;
+  padding: 8px 4px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.month-btn:hover {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.month-btn.selected {
+  background: rgba(29, 205, 156, 0.15);
+  color: #1DCD9C;
+  border-color: rgba(29, 205, 156, 0.3);
+  font-weight: 600;
+}
+
+.month-btn:focus {
+  outline: 2px solid #1DCD9C;
+  outline-offset: 2px;
+}
+
+/* Days Row */
+.days-container {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #222;
+}
+
+.days-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.days-container::-webkit-scrollbar-track {
+  background: #222;
+}
+
+.days-container::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 2px;
+}
+
+.day-btn {
+  flex: 0 0 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 50%;
+  color: #ccc;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.day-btn:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+.day-btn.selected {
+  background: #1DCD9C;
+  color: #000;
+  border-color: #1DCD9C;
+  font-weight: bold;
+}
+
+.day-btn:focus {
+  outline: 2px solid #1DCD9C;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .date-picker-popup {
+    width: 90vw;
+    left: 5vw !important; 
+    /* Override inline left for mobile centering if needed, 
+       though absolute positioning usually handles it. 
+       Let's stick to the requested positioning logic but ensure it fits. */
+  }
+  
+  .month-grid {
+    gap: 6px;
+  }
+  
+  .month-btn {
+    font-size: 12px;
+    padding: 6px 2px;
+  }
+}
